@@ -1,12 +1,5 @@
 const mongoose = require("mongoose");
 
-try {
-    mongoose.connect("mongodb://localhost:27017/PROJECT-BAG-SHOP")
-}
-catch (err) {
-    console.log("MONGODB CONNECTION ERROR", err);
-}
-
 const userSchema = new mongoose.Schema(
     {
         name: {
