@@ -1,3 +1,4 @@
+const db = require('./config/mongoose.connection.js')
 const express = require("express");
 const app = express();
 
@@ -8,7 +9,6 @@ const userRouter = require('./routes/user.router.js')
 const owenerRouter = require('./routes/owener.router.js')
 const productRouter = require('./routes/product.router.js');
 
-const db = require('./config/mongoose.connection.js')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
