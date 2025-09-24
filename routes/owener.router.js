@@ -3,11 +3,6 @@ const router = express.Router();
 const owenerModel = require('../models/oweners.models')
 
 
-router.get('/', (req, res) => {
-    res.send("it is owener router")
-    console.log("owener routes working");
-})
-
 // console.log("ENV OF NODE ", process.env.ENV)
 console.log("ENV OF NODE ", process.env.NODE_ENV)
 
@@ -37,6 +32,11 @@ if (process.env.NODE_ENV === "development") {
     }
     )
 }
+
+router.get('/admin', (req, res) => {
+    let success = req.flash("success")
+    res.render("createproducts", { success });
+})
 
 
 module.exports = router

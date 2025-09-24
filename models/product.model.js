@@ -6,7 +6,7 @@ const productSchmea = new mongoose.Schema({
         type: String,
     },
     image: {
-        type: String,
+        type: Buffer,
     },
     price: {
         type: Number,
@@ -26,6 +26,6 @@ const productSchmea = new mongoose.Schema({
 
 }, { timestamps: true })
 
-const productModel = mongoose.Model("productModel", productSchmea);
+const productModel = mongoose.model("productModel", productSchmea);
 
 module.exports = productModel;
