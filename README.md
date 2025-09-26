@@ -23,7 +23,7 @@ CarryCraze Store is an online platform dedicated to trendy and stylish bags. Fro
 
 For any inquiries, collaboration, or support, feel free to reach out:
 
-- **Email:** patilsahil@gmail.com  
+- **Email:** patilsahil1702@gmail.com  
 - **Phone:** 8055334454
 
 ## Installation
