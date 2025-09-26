@@ -17,7 +17,7 @@ const productSchmea = new mongoose.Schema({
     bgcolor: {
         type: String,
     },
-    panecolor: {
+    panelcolor: {
         type: String,
     },
     textcolor: {

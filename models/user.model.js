@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const productModel = require("./product.model");
 
 const userSchema = new mongoose.Schema(
     {
@@ -17,9 +18,10 @@ const userSchema = new mongoose.Schema(
             required: true,
 
         },
-        cart: {
-            type: Array,
-        },
+        cart: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: productModel
+        }],
         orders: {
             type: Array,
         },

@@ -5,15 +5,16 @@ const cookie = require('cookie-parser')
 const { generateToken } = require('../utils/generatetoken')
 const flash = require("connect-flash");
 const productModel = require('../models/product.model')
+
 module.exports.registerUser = async (req, res) => {
 
     try {
         let { name, email, password } = req.body
 
-        user = await userModel.find({ email: email })
+        user = await userModel.findOne({ email: email })
 
         if (user) {
-            req.flash("EMAIL IS ALREADY REGISTERED")
+            req.flash("error", "EMAIL IS ALREADY REGISTERED")
             return res.redirect('/')                                     // // changes occured
         }
         bcrypt.genSalt(10, (err, salt) => {
@@ -32,7 +33,7 @@ module.exports.registerUser = async (req, res) => {
 
                     let token = generateToken(user)
                     res.cookie('token', token);
-                    req.flash("error", "USER CREATED SUCCESSFULLY");   // i will use flsh message here 
+                    req.flash("success", "USER CREATED SUCCESSFULLY");   // i will use flsh message here 
                     res.redirect("/")
 
                 }
@@ -53,7 +54,7 @@ module.exports.loginUser = async (req, res) => {
     let user = await userModel.findOne({ email: email })
 
     if (!user) {
-        req.flash("error", "LOGIN FIRST")        // changes occured
+        req.flash("error", "CREATE YOUR ACCOUNT FIRST")        // changes occured
         return res.redirect('/')
     }
     bcrypt.compare(password, user.password, async (err, result) => {
